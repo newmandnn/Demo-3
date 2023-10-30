@@ -38,7 +38,7 @@ pipeline {
                 echo 'Building Network + EKS Cluster'
                 sh "pwd && ls -la"
                 sh '''cd terraform && terraform apply --auto-approve -target=module.network'''
-                sleep 10
+                
                 
             }
         }
@@ -48,7 +48,7 @@ pipeline {
                 echo 'Building Network + EKS Cluster'
                 sh "pwd && ls -la"
                 sh '''cd terraform && terraform apply --auto-approve -target=module.eks'''
-                sleep 30
+                sleep 10
                 
             }
         }
@@ -58,7 +58,7 @@ pipeline {
                 echo 'Connecting...'
                 sh "pwd && ls -la"
                 sh '''eksctl utils write-kubeconfig --cluster=Demo-3 --region=eu-central-1'''
-                sleep 10
+                
                 
             }
         }
@@ -67,7 +67,7 @@ pipeline {
             steps {
                 echo 'Creating deployment with 3 Pods and Service with LoadBalancer'
                 sh "pwd && ls -la"
-                sh '''cd kubernetes && kubectl apply -f app.yaml'''
+                sh '''cd kubernetes && kubectl apply -f app.yml'''
                 sleep 10
                 
             }
