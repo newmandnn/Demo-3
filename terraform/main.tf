@@ -6,10 +6,10 @@ module "network" {
   private_subnet_cidrs = var.private_subnet_cidrs
 }
 
-/* module "ecr" {
+module "ecr" {
   source          = "./modules/ecr"
   repository_name = var.repository_name
-} */
+}
 
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>EKS<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 

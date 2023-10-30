@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+
+    tools {
+        terraform 'terraform_new'
+    }
+
+    
+    stages {
+        stage('Delete ECR images'){
+            steps {
+                sh "pwd"
+                sh "ls -la"
+                sh "aws ecr batch-delete-image \
+                    --repository-name demo_2_app \
+                    --image-ids imageTag=latest"
+
+            }
+        }
+
+        stage('Delete Docker images'){
+            steps {
+                sh "pwd"
+                sh "ls -la"
+                sh "docker system prune -a --volumes -f"
+
+            }
+        }
+
+        stage('Terraform destroy'){
+            steps {
+                sh "pwd"
+                sh "ls -la"
+                sh '''cd terraform && terraform destroy --auto-approve'''
+
+            }
+        }
+    }
+}
