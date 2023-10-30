@@ -1,12 +1,12 @@
 
 variable "username_secret_name" {
   type    = string
-  default = "rds_username3"
+  default = "rds_username4"
 }
 
 variable "password_secret_name" {
   type    = string
-  default = "rds_password3"
+  default = "rds_password4"
 }
 
 variable "subnet_name" {
