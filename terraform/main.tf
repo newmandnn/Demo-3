@@ -1,3 +1,4 @@
+#||||||||||||||||||||||||||||||||||||||||||||||Network|||||||||||||||||||||||||||||||||||||||||||||||
 module "network" {
   source               = "./modules/network"
   vpc_cidr             = var.vpc_cidr
@@ -11,15 +12,7 @@ module "ecr" {
   repository_name = var.repository_name
 }
 
-#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>EKS<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
-# module "eks" {
-#   count  = 1
-#   source = "./modules/eks"
-#   vpc    = module.network.vpc_id
-
-# }
-
+#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>EKS<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 module "eks" {
   count              = 1
@@ -28,5 +21,14 @@ module "eks" {
   public_subnet_ids  = module.network.public_subnet_ids
   private_subnet_ids = module.network.private_subnet_ids
 
+}
+
+#=================================================RDS=================================================
+module "rds" {
+  source     = "./modules/rds"
+  username   = var.username
+  vpc_id     = module.network.vpc_id
+  vpc_cidr   = var.vpc_cidr
+  subnet_ids = module.network.private_subnet_ids
 }
 

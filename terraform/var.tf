@@ -43,7 +43,16 @@ variable "repository_name" {
 }
 
 #>>>>>>>>>>>>>>>>EKS<<<<<<<<<<<<<<<<<<
-
 variable "cluster_name" {
   default = "Demo-3"
+}
+
+#================RDS===================
+locals {
+  db_name = "Demo-db"
+  //db_identifier = "PostgreSQL-db"
+}
+
+variable "username" {
+  default = "demo"
 }

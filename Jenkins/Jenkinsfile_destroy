@@ -27,14 +27,14 @@ pipeline {
             }
         }
 
-        // stage('Delete Deployments and Services'){
-        //     steps {
-        //         sh "pwd"
-        //         sh "ls -la"
-        //         sh "cd kubernetes && kubectl delete -f app.yml"
+        stage('Delete Deployments and Services'){
+            steps {
+                sh "pwd"
+                sh "ls -la"
+                sh "cd kubernetes && kubectl delete -f app.yml"
 
-        //     }
-        // }
+            }
+        }
 
         stage('Terraform destroy'){
             steps {

@@ -53,6 +53,16 @@ pipeline {
             }
         }
 
+        stage('Build EKS resources in AWS') {
+            steps {
+                echo 'Building Network + EKS Cluster'
+                sh "pwd && ls -la"
+                sh '''cd terraform && terraform apply --auto-approve -target=module.rds'''
+                sleep 10
+                
+            }
+        }
+
         stage('eksctl Connect to eks cluster') {
             steps {
                 echo 'Connecting...'
