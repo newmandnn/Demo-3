@@ -39,7 +39,7 @@ variable "private_subnet_ids" {
 
 #<<<<<<<<<<<<<<<<ECR>>>>>>>>>>>>>>>>>>
 variable "repository_name" {
-  default = "flask-ecr-repo"
+  default = "demo-app"
 }
 
 #>>>>>>>>>>>>>>>>EKS<<<<<<<<<<<<<<<<<<
