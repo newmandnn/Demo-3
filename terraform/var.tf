@@ -39,7 +39,7 @@ variable "private_subnet_ids" {
 
 #<<<<<<<<<<<<<<<<ECR>>>>>>>>>>>>>>>>>>
 variable "repository_name" {
-  default = "demo-app"
+  default = "demo-app-1"
 }
 
 #>>>>>>>>>>>>>>>>EKS<<<<<<<<<<<<<<<<<<
