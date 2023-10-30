@@ -53,7 +53,7 @@ pipeline {
             }
         }
 
-        stage('Build EKS resources in AWS') {
+        stage('Build RDS resources in AWS') {
             steps {
                 echo 'Building Network + EKS Cluster'
                 sh "pwd && ls -la"
