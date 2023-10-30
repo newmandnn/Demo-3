@@ -40,7 +40,7 @@ pipeline {
             steps {
                 sh "pwd"
                 sh "ls -la"
-                sh '''cd terraform && terraform destroy --auto-approve'''
+                sh '''cd ../3_Demo_Build/terraform && terraform destroy --auto-approve'''
 
             }
         }
