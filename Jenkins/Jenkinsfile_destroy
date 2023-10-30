@@ -12,7 +12,7 @@ pipeline {
                 sh "pwd"
                 sh "ls -la"
                 sh "aws ecr batch-delete-image \
-                    --repository-name demo_2_app \
+                    --repository-name demo-app-1 \
                     --image-ids imageTag=latest"
 
             }
